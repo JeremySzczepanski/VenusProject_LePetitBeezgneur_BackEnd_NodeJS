@@ -33,31 +33,31 @@ export namespace UserController
         }
     }
 
-    // export async function getOneByEmail(req: Request, res: Response, next: NextFunction)
-    // {
-    //     try
-    //     {
-    //         const results = await UserModel.getOneByEmail(req.params.email);
-    //         res.json(results);
-    //     } catch(err)
-    //     {
-    //         res.status(500).send(err);
-    //     }
-    // }
+    export async function getOneByEmail(req: Request, res: Response, next: NextFunction)
+    {
+        try
+        {
+            const results = await UserModel.getOneByEmail(req.params.email);
+            res.json(results);
+        } catch(err)
+        {
+            res.status(500).send(err);
+        }
+    }
 
-    // export async function createUser(req: Request, res: Response, next: NextFunction)
-    // {
-    //     try
-    //     {
-    //         console.log(req.body);
-    //         const user = new User(req.body);
-    //         const results = await UserModel.insertUser(user);
-    //         res.json(results);
-    //     } catch(err)
-    //     {
-    //         res.status(500).send(err);
-    //     }
-    // }
+    export async function createUser(req: Request, res: Response, next: NextFunction)
+    {
+        try
+        {
+            console.log(req.body);
+            const user = new User(req.body);
+            const results = await UserModel.insertUser(user);
+            res.json(results);
+        } catch(err)
+        {
+            res.status(500).send(err);
+        }
+    }
 
     // export async function deleteUser(req: Request, res: Response, next: NextFunction)
     // {
