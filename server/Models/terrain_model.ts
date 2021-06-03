@@ -43,4 +43,40 @@ export class TerrainModel
         });
     }
 
+    public static async getOneByID(id: any)
+    {
+        return connect().then((conn) => 
+        {
+            return conn.query('SELECT nom_terrain, start_at, end_at FROM terrain WHERE id=?', id).then((results) =>
+            {
+                return results;
+            });
+        });
+    }
+
+
+    public static async deleteTerrainByID(id: any)
+    {
+        return connect().then((conn) => 
+        {
+            return conn.query('DELETE FROM terrain WHERE Id_Terrain=?', id).then((results) => 
+            {
+                return this.getAll();
+            });
+        });
+    }
+
+
+    public static async updateTerrainByID(id: any, terrain: Terrain)
+    {
+        return connect().then((conn) => 
+        {
+            return conn.query('UPDATE terrain SET nom_terrain=?, start_at=?, end_at=? WHERE id=?', 
+            [terrain.nom_terrain, terrain.start_at, terrain.end_at, id]).then((results) => 
+            {
+                return this.getOneByID(id);
+            });
+        });
+    }
+
 }

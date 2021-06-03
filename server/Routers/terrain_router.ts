@@ -10,11 +10,11 @@ export class TerrainRouter
         this.router = Router();
 
         this.router.get('/', TerrainController.getAll);
-        this.router.post('/create', TerrainController.insertTerrain);
+        this.router.get('/id/:id', TerrainController.getOneByID);
+        this.router.post('/create', TerrainController.createTerrain);
+        this.router.delete('/:id', TerrainController.deleteTerrain);
+        this.router.put('/:id', TerrainController.updateTerrainByID);
         
-        //this.router.get('/id/:id', TerrainController.getOneByID);
         //this.router.get('/name/:name', TerrainController.getOneByName);
-        //this.router.delete('/:id', TerrainController.deleteUser);
-        //this.router.put('/:id', TerrainController.updateUserByID);
     }
 }

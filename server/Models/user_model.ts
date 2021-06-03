@@ -93,40 +93,40 @@ export class UserModel
 
 
     
-    // public static async deleteUserByID(id: any)
-    // {
-    //     return connect().then((conn) => 
-    //     {
-    //         return conn.query('DELETE FROM utilisateurs WHERE id_Users=?', id).then((results) => 
-    //         {
-    //             return this.getAll();
-    //         });
-    //     });
-    // }
+    public static async deleteUserByID(id: any)
+    {
+        return connect().then((conn) => 
+        {
+            return conn.query('DELETE FROM utilisateurs WHERE id_Users=?', id).then((results) => 
+            {
+                return this.getAll();
+            });
+        });
+    }
 
-    // public static async updatePassword(user: User)
-    // {
-    //     return connect().then((conn) => 
-    //     {
-    //         return conn.query('UPDATE utilisateurs SET password=? WHERE id=?', 
-    //         [user.password, user.id_Users]).then((results) => 
-    //         {
-    //             return this.getOneByID(user.id_Users);
-    //         });
-    //     });
-    // }
+    public static async updatePassword(user: User)
+    {
+        return connect().then((conn) => 
+        {
+            return conn.query('UPDATE utilisateurs SET password=? WHERE id=?', 
+            [user.password, user.id_Users]).then((results) => 
+            {
+                return this.getOneByID(user.id_Users);
+            });
+        });
+    }
 
-    // public static async updateUserByID(id: any, user: User)
-    // {
-    //     return connect().then((conn) => 
-    //     {
-    //         return conn.query('UPDATE users SET username=?, email=?, admin=? WHERE id=?', 
-    //         [user.username, user.email, user.admin, id]).then((results) => 
-    //         {
-    //             return this.getOneByID(id);
-    //         });
-    //     });
-    // }
+    public static async updateUserByID(id: any, user: User)
+    {
+        return connect().then((conn) => 
+        {
+            return conn.query('UPDATE users SET username=?, email=?, admin=? WHERE id=?', 
+            [user.username, user.email, user.admin, id]).then((results) => 
+            {
+                return this.getOneByID(id);
+            });
+        });
+    }
 
     public static async checkPassword(username: string, password: string): Promise<any>
     {
