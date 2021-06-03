@@ -59,79 +59,79 @@ export namespace UserController
         }
     }
 
-    // export async function deleteUser(req: Request, res: Response, next: NextFunction)
-    // {
-    //     try
-    //     {
-    //         const results = await UserModel.deleteUserByID(req.params.id);
-    //         res.json(results);
-    //     } catch(err)
-    //     {
-    //         res.status(500).send(err);
-    //     }
-    // }
+    export async function deleteUser(req: Request, res: Response, next: NextFunction)
+    {
+        try
+        {
+            const results = await UserModel.deleteUserByID(req.params.id);
+            res.json(results);
+        } catch(err)
+        {
+            res.status(500).send(err);
+        }
+    }
     
-    // export async function updateConnectedUser(req: any, res: Response, next: NextFunction)
-    // {
-    //     try
-    //     {
-    //         // Get with :id from DB
-    //         const result = await UserModel.getOneByID(req.params.id);
-    //         const user = new User(result[0]);
-    //         const updatedUser = new User(req.body);
-    //         // Get the username from the token
-    //         const username = req.decoded.username;
+    export async function updateConnectedUser(req: any, res: Response, next: NextFunction)
+    {
+        try
+        {
+            // Get with :id from DB
+            const result = await UserModel.getOneByID(req.params.id);
+            const user = new User(result[0]);
+            const updatedUser = new User(req.body);
+            // Get the username from the token
+            const username = req.decoded.username;
 
-    //         if(username === user.username)
-    //         {
-    //             const results = await UserModel.updateUserByID(req.params.id, updatedUser);
-    //             res.json(results);
-    //         } else 
-    //         {
-    //             res.status(403).send({
-    //                 success: false,
-    //                 message: 'You can\'t change that user.'
-    //             });
-    //         }
-    //     } catch(err)
-    //     {
-    //         res.status(500).send(err);
-    //     }
-    // }
+            if(username === user.username)
+            {
+                const results = await UserModel.updateUserByID(req.params.id, updatedUser);
+                res.json(results);
+            } else 
+            {
+                res.status(403).send({
+                    success: false,
+                    message: 'You can\'t change that user.'
+                });
+            }
+        } catch(err)
+        {
+            res.status(500).send(err);
+        }
+    }
 
-    // export async function updateUserPassword(req: any, res: Response, next: NextFunction)
-    // {
-    //     try
-    //     {
-    //         const user = new User(req.body);
-    //         const username = req.decoded.username;
-    //         if(username === user.username)
-    //         {
-    //             const results = await UserModel.updatePassword(user);
-    //             res.json(results);
-    //         } else 
-    //         {
-    //             res.status(403).send({
-    //                 success: false,
-    //                 message: 'You can\'t change that user.'
-    //             });
-    //         }
-    //     } catch(err)
-    //     {
-    //         res.status(500).send(err);
-    //     }
-    // }
+    export async function updateUserPassword(req: any, res: Response, next: NextFunction)
+    {
+        try
+        {
+            const user = new User(req.body);
+            const username = req.decoded.username;
+            if(username === user.username)
+            {
+                const results = await UserModel.updatePassword(user);
+                res.json(results);
+            } else 
+            {
+                res.status(403).send({
+                    success: false,
+                    message: 'You can\'t change that user.'
+                });
+            }
+        } catch(err)
+        {
+            res.status(500).send(err);
+        }
+    }
 
-    // export async function updateUserByID(req: Request, res: Response, next: NextFunction)
-    // {
-    //     try
-    //     {
-    //         const user = new User(req.body);
-    //         const results = await UserModel.updateUserByID(req.params.id, user);
-    //         res.json(results);
-    //     } catch(err)
-    //     {
-    //         res.status(500).send(err);
-    //     }
-    // }
+    export async function updateUserByID(req: Request, res: Response, next: NextFunction)
+    {
+        try
+        {
+            const user = new User(req.body);
+            const results = await UserModel.updateUserByID(req.params.id, user);
+            res.json(results);
+        } catch(err)
+        {
+            res.status(500).send(err);
+        }
+    }
 }
