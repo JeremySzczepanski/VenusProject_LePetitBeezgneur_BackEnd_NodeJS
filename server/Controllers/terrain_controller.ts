@@ -10,7 +10,7 @@ export namespace TerrainController
         res.json(results);
     }
 
-    export async function insertTerrain (req: Request, res: Response, next: NextFunction)
+    export async function createTerrain (req: Request, res: Response, next: NextFunction)
     {
         try
         {
@@ -24,5 +24,42 @@ export namespace TerrainController
         }
     }
 
+    export async function getOneByID(req: Request, res: Response, next: NextFunction)
+    {
+        try
+        {
+            const results = await TerrainModel.getOneByID(req.params.id);
+            res.json(results);
+        } catch(err)
+        {
+            res.status(500).send(err);
+        }
+    }
+
+
+    export async function updateTerrainByID(req: Request, res: Response, next: NextFunction)
+    {
+        try
+        {
+            const terrain = new Terrain(req.body);
+            const results = await TerrainModel.updateTerrainByID(req.params.id, terrain);
+            res.json(results);
+        } catch(err)
+        {
+            res.status(500).send(err);
+        }
+    }
+
+    export async function deleteTerrain(req: Request, res: Response, next: NextFunction)
+    {
+        try
+        {
+            const results = await TerrainModel.deleteTerrainByID(req.params.id);
+            res.json(results);
+        } catch(err)
+        {
+            res.status(500).send(err);
+        }
+    }
 
 }
