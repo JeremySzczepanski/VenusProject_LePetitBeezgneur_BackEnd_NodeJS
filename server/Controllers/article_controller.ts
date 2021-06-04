@@ -1,20 +1,21 @@
 import { Router, Request, Response, NextFunction } from 'express';
-import { Commande, CommandeModel } from '../Models/commande_model';
+import { Article, ArticleModel } from '../Models/article_model';
 
-export namespace CommandeController
+export namespace ArticleController
 {
 
     export async function getAll(req: Request, res: Response, next: NextFunction)
     {
-        const results = await CommandeModel.getAll();
+        const results = await ArticleModel.getAll();
         res.json(results);
     }
+
 
     export async function getOneByID(req: Request, res: Response, next: NextFunction)
     {
         try
         {
-            const results = await CommandeModel.getOneByID(req.params.id);
+            const results = await ArticleModel.getOneByID(req.params.id);
             res.json(results);
         } catch(err)
         {
@@ -22,18 +23,21 @@ export namespace CommandeController
         }
     }
 
-    export async function createCommande (req: Request, res: Response, next: NextFunction)
+    
+    export async function createArticle (req: Request, res: Response, next: NextFunction)
     {
         try
         {
             console.log(req.body);
-            const commande = new Commande(req.body);
-            const results = await CommandeModel.insertCommande(commande);
+            const article = new Article(req.body);
+            const results = await ArticleModel.insertArticle(article);
             res.json(results);
         } catch(err)
         {
             res.status(500).send(err);
         }
     }
+
     
+
 }

@@ -11,7 +11,7 @@ export class CommandeRouter
 
         this.router.get('/', CommandeController.getAll);
         this.router.get('/id/:id', CommandeController.getOneByID);
-        // this.router.post('/create', CommandeController.createCommande);
+        this.router.post('/create', CommandeController.createCommande);
         // this.router.delete('/:id', CommandeController.deleteCommande);
         // this.router.put('/:id', CommandeController.updateCommandeByID);
         
