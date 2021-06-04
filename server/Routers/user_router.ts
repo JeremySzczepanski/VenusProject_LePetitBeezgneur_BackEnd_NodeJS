@@ -7,6 +7,7 @@ export class UserRouter
 
     constructor()
     {
+        
         this.router = Router();
 
         this.router.get('/', UserController.getAll);

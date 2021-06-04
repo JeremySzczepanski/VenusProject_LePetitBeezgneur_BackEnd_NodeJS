@@ -10,6 +10,7 @@ export class UserCommonRouter
     {
         this.router = Router();
 
+        
         this.router.get('/name/:name', UserController.getOneByName);
         this.router.get('/id/:id', UserController.getOneByID);
         this.router.post('/create', UserController.createUser);

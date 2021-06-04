@@ -14,6 +14,7 @@ export class TerrainRouter
         this.router.post('/create', TerrainController.createTerrain);
         this.router.delete('/:id', TerrainController.deleteTerrain);
         this.router.put('/:id', TerrainController.updateTerrainByID);
+     
         
         //this.router.get('/name/:name', TerrainController.getOneByName);
     }

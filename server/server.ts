@@ -10,6 +10,7 @@ export class Server
     private app: express.Application;
     //private httpsServer: https.Server | undefined;
 
+    
     constructor()
     {
         //create application

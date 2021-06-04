@@ -40,7 +40,7 @@ export class AuthentificationRouter
                     // si le jeton est correct, on stocke sa version "décodée", càd la charge utile,
                     // dans la requête afin que les filtres suivants puissent y avoir directement accès.
                     req.decoded = decoded;
-                    // on appelle le filtre suivant
+                    // on appelle le filtre suivant 
                     next();
                 }
             });

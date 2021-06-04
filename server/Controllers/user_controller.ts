@@ -9,6 +9,7 @@ export namespace UserController
         res.json(results);
     }
 
+    
     export async function getOneByID(req: Request, res: Response, next: NextFunction)
     {
         try

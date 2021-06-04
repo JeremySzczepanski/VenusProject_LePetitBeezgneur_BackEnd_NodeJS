@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { ArticleController } from '../Controllers/article_controller';
 
+
 export class ArticleRouter
 {
     public router: Router;
