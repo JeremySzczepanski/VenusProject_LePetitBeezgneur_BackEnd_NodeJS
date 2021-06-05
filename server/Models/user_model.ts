@@ -39,7 +39,7 @@ export class UserModel
     {
         return connect().then((conn) => 
         {
-            return conn.query('SELECT Id_Users, is_verified, username, first_name, last_name, adresse_rue, adresse_nbr, adresse_cp, adresse_ville, email, admin, password FROM utilisateurs').then((results) => 
+            return conn.query('SELECT Id_Users, is_verified, username, first_name, last_name, adresse_rue, adresse_nbr, adresse_cp, adresse_ville, email, admin FROM utilisateurs').then((results) => 
             {
                 return results;
             });
