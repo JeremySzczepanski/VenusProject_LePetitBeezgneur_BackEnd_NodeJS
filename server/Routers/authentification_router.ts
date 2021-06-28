@@ -89,7 +89,7 @@ export class AuthentificationRouter
         {
             const token = jwt.sign({ username: req.body.username, admin: result.admin }, 
                 'LePetitBeezPass',
-                { expiresIn: 60 });
+                { expiresIn: 180 });
             res.json({ success: true, message: 'logged in', token: token, admin: result.admin });
         }else {
             res.json({ success: false, message: 'bad username and or password' });

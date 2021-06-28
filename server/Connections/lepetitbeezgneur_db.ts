@@ -7,6 +7,6 @@ export function connect()
             host: 'localhost',
             user: 'root',
             password: '',
-            database: 'venus_lepetitbeezgneur'
+            database: 'venus2_lepetitbeezgneur'
         });
 }

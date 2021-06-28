@@ -1,9 +1,9 @@
 import { Router, Request, Response, NextFunction } from 'express';
-import { ReservationTerrainModel } from '../Models/reservation_terrain_model';
+import { ReservationTerrain, ReservationTerrainModel } from '../Models/reservation_terrain_model';
 
 
 
-export namespace CommandeController
+export namespace ReservationTerrainController
 {
     export async function getAll(req: Request, res: Response, next: NextFunction)
     {
@@ -24,7 +24,19 @@ export namespace CommandeController
         }
     }
 
-
+    export async function createReservationTerrain(req: Request, res: Response, next: NextFunction)
+    {
+        try
+        {
+            console.log(req.body);
+            const reservation_terrain = new ReservationTerrain(req.body);
+            const results = await ReservationTerrainModel.insertReservationTerrain(reservation_terrain);
+            res.json(results);
+        } catch(err)
+        {
+            res.status(500).send(err);
+        }
+    }
 
 }
 
