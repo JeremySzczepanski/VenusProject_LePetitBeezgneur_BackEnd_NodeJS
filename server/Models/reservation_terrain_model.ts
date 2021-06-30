@@ -7,6 +7,8 @@ export class ReservationTerrain
     date_reservation: Date;
     start_at: Date;
     end_at: Date;
+    nom_terrain: string;
+    Prix_heure: number;
 
     constructor(data: any)
     {
@@ -15,11 +17,15 @@ export class ReservationTerrain
         this.date_reservation = data.date_reservation;
         this.start_at = data.start_at;
         this.end_at = data.end_at;
+        this.nom_terrain = data.nom_terrain;
+        this.Prix_heure = data.Prix_heure;
     }
 }
 
 export class ReservationTerrainModel
 {
+
+    
     public static async getAll()
     {
         return connect().then((conn) =>
@@ -30,6 +36,19 @@ export class ReservationTerrainModel
             });
         });
     }
+
+
+    public static async getAllReservationTerrain()
+    {
+        return connect().then((conn) =>
+        {
+            return conn.query('SELECT Id_Commande, Id_terrain, date_reservation, start_at, end_at FROM  reserve_terrain').then((results) =>
+            {
+                return results;
+            });
+        });
+    }
+
 
     public static async getOneByID(id: any)
     {

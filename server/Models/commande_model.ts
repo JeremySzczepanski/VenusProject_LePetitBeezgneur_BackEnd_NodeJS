@@ -28,6 +28,10 @@ export class Commande
     }
 }
 
+
+
+
+
 export class CommandeModel
 {
     public static async getAll()
@@ -40,6 +44,15 @@ export class CommandeModel
             });
         });
     }
+
+
+
+
+    /**
+     * 
+     * @param commande 
+     * @returns selectionne la commande en fonction de l'Id_Commande (Id_Commande, DateCommnande, Montant, Commande_Honoree, Id_Client)
+     */
 
     public static async getOneByID(id: any)
     {
@@ -72,7 +85,7 @@ export class CommandeModel
     /**
      * 
      * @param commande 
-     * @returns génére un Id_Command pour faire un INSERT commande avec location terrain et paddle
+     * @returns create commande, et recupère la commande qui vient d'être insérée (Montant, Commande_Honoree, Id_Users)
      */
 
     public static async insertCommande(commande: Commande)
