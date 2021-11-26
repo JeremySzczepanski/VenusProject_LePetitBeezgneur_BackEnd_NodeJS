@@ -58,6 +58,8 @@ export class Server
         this.app.use('/api/terrains', new TerrainRouter().router);
         this.app.use('/api/commande', new CommandeRouter().router);
         this.app.use('/api/reservation', new ReservationTerrainRouter().router);
+        //this.app.use('/api/commentaires', new CommentaireRouter().router);  TODO
+        //this.app.use('/api/articles', new ArticlesRouter().router);  TODO
 
         this.app.use(AuthentificationRouter.checkAdmin);
         // *** FROM HERE -> REQUIRE ADMIN PRIVILEGES ACCES ***

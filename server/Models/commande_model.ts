@@ -65,7 +65,33 @@ export class CommandeModel
         });
     }
 
+    
+    
+    /**
+     * 
+     * @param commande 
+     * @returns create commande, et recupère la commande qui vient d'être insérée (Montant, Commande_Honoree, Id_Users)
+     */
+    
+    public static async insertCommande(commande: Commande)
+    {
+        return connect().then((conn) =>
+        {
+            return conn.query('INSERT INTO commande ( Montant, Commande_Honoree, Id_Users ) VALUES(? ,? ,?)', 
+            [commande.Montant, commande.Commande_Honoree, commande.Id_Users]).then((results) =>
+            {
+                console.log(results.insertId); //recupère l'id généré
+                //console.log(results)
+                
+                
+                //return results.insertId;
+                return this.getOneByID(results.insertId); //recupère la commande qui vient d'être insérée
+            })
+        })
+    }
+    
 
+    
     // public static async insertCommande(commande: Commande)
     // {
     //     return connect().then((conn) => 
@@ -77,32 +103,4 @@ export class CommandeModel
     //         });
     //     });
     // }
-
-
-
-    
-
-    /**
-     * 
-     * @param commande 
-     * @returns create commande, et recupère la commande qui vient d'être insérée (Montant, Commande_Honoree, Id_Users)
-     */
-
-    public static async insertCommande(commande: Commande)
-    {
-        return connect().then((conn) =>
-        {
-            return conn.query('INSERT INTO commande ( Montant, Commande_Honoree, Id_Users ) VALUES(? ,? ,?)', 
-            [commande.Montant, commande.Commande_Honoree, commande.Id_Users]).then((results) =>
-            {
-                console.log(results.insertId); //recupère l'id généré
-                //console.log(results)
-
-
-                //return results.insertId;
-                return this.getOneByID(results.insertId); //recupère la commande qui vient d'être insérée
-            })
-        })
-    }
-
 }
